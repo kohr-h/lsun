@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from __future__ import division, print_function
 
 import argparse
@@ -48,6 +45,7 @@ def download(out_dir, category, set_name, tag):
         pbar.update(progress_bytes - pbar.n)
 
     urlretrieve(url, out_path, reporthook=hook)
+    pbar.close()
 
 
 def main():

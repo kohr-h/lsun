@@ -42,6 +42,8 @@ def download(out_dir, category, set_name, tag):
     pbar = tqdm.tqdm(desc=desc, unit="B", unit_scale=True)
 
     def hook(count, block_size, total_size):
+        if pbar.total is None and total_size:
+            pbar.total = total_size
         progress_bytes = int(count * block_size)
         pbar.update(progress_bytes - pbar.n)
 
